@@ -1,6 +1,11 @@
-public class Home extends Location{
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
+public class Road extends Location {
     private int length;
-    public Home(String name, int length, Time time) {
+    public Road(String name, int length, Time time) {
         super(name, time);
         this.length = length;
     }
@@ -12,7 +17,7 @@ public class Home extends Location{
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 1;
+        return (result) * 20;
     }
 
     @Override
@@ -28,6 +33,6 @@ public class Home extends Location{
 
     @Override
     public String toString() {
-        return "Home: " + this.getLocationName();
+        return "Subjects.Road: " + this.getLocationName();
     }
 }

@@ -1,3 +1,8 @@
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
 public class OtherGuys {
     private String name;
     private IsSleeping isSleeping;
@@ -22,7 +27,7 @@ public class OtherGuys {
     public void notUnderstand(Person person){
         System.out.println(name + " не понимали почему персонаж " + person.getName() + " так радовался");
     }
-    void toSleep() {
+    public void toSleep() {
         System.out.println(name + " уснули");
     }
 

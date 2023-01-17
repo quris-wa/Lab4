@@ -1,3 +1,7 @@
+package Abstracts;
+
+
+
 public abstract class Location {
     private String name;
     private Time time;

@@ -1,4 +1,9 @@
-public class Rocket extends Transport{
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
+public class Rocket extends Transport {
     private String name;
     private Material material;
     public Rocket(String name, Point point, Location location, Material material) {
@@ -26,6 +31,6 @@ public class Rocket extends Transport{
 
     @Override
     public String toString() {
-        return "Rocket: " + this.getName();
+        return "Subjects.Rocket: " + this.getName();
     }
 }

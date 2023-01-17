@@ -1,3 +1,8 @@
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
 public class Person implements canChangeLoc {
     private String name;
     private Location location;
@@ -29,21 +34,21 @@ public class Person implements canChangeLoc {
     @Override
     public void setLocation(Location location) {
         this.location = location;
-        if (point.getX() == 0)
-            System.out.println("Персонаж " + name + " находится в локации " + location.getLocationName() + " его координаты " + point.getX());
+        if (point.getX() == 0 && point.getY() == 0)
+            System.out.println("Персонаж " + name + " находится в локации " + location.getLocationName() + " его координаты " + point.getX() + "," + point.getY());
     }
 
     public void go(Location location) {
         point.sumX(10);
         setLocation(location);
         if (location.getLocationName().equals("Круглая площадь")) {
-            System.out.println("Персонаж " + name + " прокрадывается в локацию " + location.getLocationName() + " его координаты " + point.getX());
+            System.out.println("Персонаж " + name + " прокрадывается в локацию " + location.getLocationName() + " его координаты " + point.getX()+ "," + point.getY());
         }
         else if (location.getLocationName().equals("Вблизи ракеты")) {
-            System.out.println("Персонаж " + name + " в скрюченном виде проскальзывает в локацию " + location.getLocationName() + " его координаты " + point.getX());
+            System.out.println("Персонаж " + name + " в скрюченном виде проскальзывает в локацию " + location.getLocationName() + " его координаты " + point.getX()+ "," + point.getY());
         }
         else {
-            System.out.println("Персонаж " + name + " идет в локацию " + location.getLocationName() + " его координаты " + point.getX());
+            System.out.println("Персонаж " + name + " идет в локацию " + location.getLocationName() + " его координаты " + point.getX()+ "," + point.getY());
         }
     }
 
@@ -103,7 +108,7 @@ public class Person implements canChangeLoc {
         }
     }
 
-    void returnToNorm(String name1, String name2) {
+    public void returnToNorm(String name1, String name2) {
         class Appetit {
             String name1;
 
@@ -155,7 +160,7 @@ public class Person implements canChangeLoc {
         }
     }
 
-    void toBeChanged(String name1, int ver) {
+    public void toBeChanged(String name1, int ver) {
         if (ver < 50) {
             System.out.println("У персонажа " + name + " как будто переменился " + name1);
         } else {

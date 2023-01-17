@@ -1,6 +1,11 @@
-public class Road extends Location{
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
+public class NearRocket extends Location {
     private int length;
-    public Road(String name, int length, Time time) {
+    public NearRocket(String name, int length, Time time) {
         super(name, time);
         this.length = length;
     }
@@ -28,6 +33,6 @@ public class Road extends Location{
 
     @Override
     public String toString() {
-        return "Road: " + this.getLocationName();
+        return "Subjects.Road: " + this.getLocationName();
     }
 }

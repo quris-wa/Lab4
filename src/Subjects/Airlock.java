@@ -1,4 +1,9 @@
-public class Airlock extends Location{
+package Subjects;
+import Abstracts.*;
+import Subjects.*;
+
+
+public class Airlock extends Location {
     private int length;
     public Airlock(String name, int length, Time time) {
         super(name, time);
@@ -28,6 +33,6 @@ public class Airlock extends Location{
 
     @Override
     public String toString() {
-        return "Airlock: " + this.getLocationName();
+        return "Subjects.Airlock: " + this.getLocationName();
     }
 }

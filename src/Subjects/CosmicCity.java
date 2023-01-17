@@ -1,6 +1,11 @@
-public class Square extends Location {
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
+public class CosmicCity extends Location {
     private int length;
-    public Square(String name, int length, Time time) {
+    public CosmicCity(String name, int length, Time time) {
         super(name, time);
         this.length = length;
     }
@@ -12,7 +17,7 @@ public class Square extends Location {
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 60;
+        return (result) * 40;
     }
 
     @Override
@@ -23,11 +28,11 @@ public class Square extends Location {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((Square) obj).getLocationName().equals(this.getLocationName());
+        return ((CosmicCity) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Square: " + this.getLocationName();
+        return "Subjects.CosmicCity: " + this.getLocationName();
     }
 }

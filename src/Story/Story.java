@@ -1,3 +1,9 @@
+package Story;
+
+import Abstracts.*;
+import Subjects.*;
+
+
 public class Story {
     public static void main(String[] args) throws MyException.StorylineException {
         try {
@@ -7,19 +13,19 @@ public class Story {
             Location square = new Square("Круглая площадь", 30, Time.NIGHT);
             Location nearrocket = new NearRocket("Вблизи ракеты", 40, Time.NIGHT);
             Location airlock = new Airlock("Шлюзовая камера",50, Time.NIGHT);
-            Person neznayka = new Person("Незнайка", home, new Point(0), IsSleeping.NOTSLEEPING, Thoughs.NOTCALM);
+            Person neznayka = new Person("Незнайка", home, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NOTCALM);
             neznayka.calm();
             neznayka.returnToNorm("Аппетит", "Сон");
             OtherGuys korotyshki = new OtherGuys("Другие коротышки", IsSleeping.NOTSLEEPING);
             neznayka.went(cosmiccity);
             korotyshki.went(cosmiccity);
-            Transport rocket = new Rocket("Ракета", new Point(0), square, Material.METAL);
+            Transport rocket = new Rocket("Ракета", new Point(0,0), square, Material.METAL);
             rocket.toBeTested();
             neznayka.saw("долгое");
             Travelers travelers = new Travelers("Путешественники");
             neznayka.saw("долгое");
-            Person fuksia = new Person("Фуксия", square, new Point(0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
-            Person seledocka = new Person("Селедочка", square, new Point(0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
+            Person fuksia = new Person("Фуксия", square, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
+            Person seledocka = new Person("Селедочка", square, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
             fuksia.toLection(seledocka, "Луна", "Межпланетные полеты");
             neznayka.toAccept(30, "Полет на Луну");
             neznayka.toBeChanged("Характер", 20);
@@ -27,7 +33,7 @@ public class Story {
             attentiveguys.toAttent(neznayka);
             neznayka.think(Thoughs.NEUTRAL);
             korotyshki.notUnderstand(neznayka);
-            Person ponchik = new Person("Пончик", home, new Point(0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
+            Person ponchik = new Person("Пончик", home, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
             neznayka.meet(ponchik, true);
             OtherGuys korotyshki1 = new OtherGuys("Остальные коротышки", IsSleeping.NOTSLEEPING);
             neznayka.setLocation(home);

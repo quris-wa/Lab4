@@ -1,3 +1,5 @@
+package Subjects;
+
 public class Travelers {
     String name;
     public Travelers(String name){

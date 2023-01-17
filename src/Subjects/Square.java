@@ -1,6 +1,11 @@
-public class NearRocket extends Location{
+package Subjects;
+
+import Abstracts.*;
+import Subjects.*;
+
+public class Square extends Location {
     private int length;
-    public NearRocket(String name, int length, Time time) {
+    public Square(String name, int length, Time time) {
         super(name, time);
         this.length = length;
     }
@@ -12,7 +17,7 @@ public class NearRocket extends Location{
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 20;
+        return (result) * 60;
     }
 
     @Override
@@ -23,11 +28,11 @@ public class NearRocket extends Location{
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((Road) obj).getLocationName().equals(this.getLocationName());
+        return ((Square) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Road: " + this.getLocationName();
+        return "Subjects.Square: " + this.getLocationName();
     }
 }
