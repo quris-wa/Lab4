@@ -1,13 +1,11 @@
 package story;
 
-import Exception1.*;
-import Exception2.*;
 import abstracts.*;
 import subjects.*;
 
 
 public class Story {
-    public static void main(String[] args) throws Exception1.StorylineException, Exception2.EmptyException {
+    public static void main(String[] args) throws exception1.StorylineException, exception2.EmptyException {
         try {
             Location home = new Home("Дом", Time.NIGHT, new Point(0,0));
             Location road = new Road("Дорога", Time.NIGHT, new Point(10,0));
@@ -98,7 +96,7 @@ public class Story {
         } catch (Exception exception) {
             exception.printStackTrace();
             System.out.println("Что-то не так");
-            throw new Exception1.StorylineException();
+            throw new exception1.StorylineException();
         }
 
     }

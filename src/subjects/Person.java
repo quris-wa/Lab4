@@ -1,6 +1,6 @@
 package subjects;
 
-import Exception2.EmptyException;
+import exception2.EmptyException;
 import abstracts.*;
 
 public class Person implements СanChangeLoc {
@@ -58,7 +58,7 @@ public class Person implements СanChangeLoc {
         }
     }
 
-    public void scare() throws Exception2.EmptyException{
+    public void scare() throws exception2.EmptyException{
         if(!name.equals("Пончик")){
             throw new EmptyException(name + " не может бояться этого");
         }

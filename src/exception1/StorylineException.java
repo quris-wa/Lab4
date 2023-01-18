@@ -1,4 +1,4 @@
-package Exception1;
+package exception1;
 
 
 public class StorylineException extends Exception {
