@@ -1,16 +1,16 @@
-package Subjects;
+package subjects;
 
-import Abstracts.*;
-import Subjects.*;
+import Exception2.EmptyException;
+import abstracts.*;
 
-public class Person implements canChangeLoc {
+public class Person implements СanChangeLoc {
     private String name;
     private Location location;
     private Point point;
-    private IsSleeping isSleeping;
+    private boolean isSleeping;
     private Thoughs thoughs;
     private boolean zametil = false;
-    public Person(String name, Location location, Point point, IsSleeping isSleeping, Thoughs thoughs) {
+    public Person(String name, Location location, Point point, boolean isSleeping, Thoughs thoughs) {
         this.name = name;
         this.location = location;
         this.point = point;
@@ -24,11 +24,17 @@ public class Person implements canChangeLoc {
     }
 
     private void joinToStory() {
-        System.out.println("Персонаж " + name + " присоединился к истории");
+        if(name.equals("Остальные коротышки")||name.equals("Другие коротышки")) {
+            System.out.println(name + " присоединились к истории");
+        }
+        else {
+            System.out.println("Персонаж " + name + " присоединился к истории");
+        }
+
     }
 
-    public String getIsSleeping() {
-        return isSleeping.toString();
+    public boolean getIsSleeping() {
+        return isSleeping;
     }
 
     @Override
@@ -52,8 +58,11 @@ public class Person implements canChangeLoc {
         }
     }
 
-    public void scare() {
-        if (name.equals("Пончик") && location.getLocationName().equals("Дорога")) {
+    public void scare() throws Exception2.EmptyException{
+        if(!name.equals("Пончик")){
+            throw new EmptyException(name + " не может бояться этого");
+        }
+        if (location.getLocationName().equals("Дорога")) {
             thoughs = Thoughs.SCAREDOFSCAPE;
             System.out.println(name + " боялся уноситься в космическое пространство ");
         }
@@ -78,7 +87,10 @@ public class Person implements canChangeLoc {
     }
 
     public void notSleep() {
-        if (getIsSleeping().equals("NOTSLEEPING")) {
+        if(!name.equals("Пончик")&&!name.equals("Незнайка")){
+            throw new EmptyException(name + " вообще-то легли спать");
+        }
+        if (getIsSleeping()) {
             System.out.println(name + " не лег спать");
         }
     }
@@ -130,7 +142,7 @@ public class Person implements canChangeLoc {
 
     }
 
-    public void went(Location location) {
+    public void went1(Location location) {
 
         System.out.println("Персонаж " + name + " приходил на локацию " + location.getLocationName());
 
@@ -211,6 +223,22 @@ public class Person implements canChangeLoc {
         if(thoughs.equals(Thoughs.HURTFUL)){
             System.out.println("Персонажу " + name + " стало так " + name1 + " и " + name2);
         }
+    }
+
+    public void went2(Location location) {
+        if (name.equals("Другие коротышки")) {
+            System.out.println(name + " приходили вместе с ним на локацию " + location.getLocationName());
+        }
+
+    }
+    public void toAttent(Person person){
+        System.out.println(name + " начали замечать, что персонаж " + person.getName() + " стал задумываться о чем-то" );
+    }
+    public void notUnderstand(Person person){
+        System.out.println(name + " не понимали почему персонаж " + person.getName() + " так радовался");
+    }
+    public void toSleep() {
+        System.out.println(name + " уснули");
     }
 
     public Point getPoint() {

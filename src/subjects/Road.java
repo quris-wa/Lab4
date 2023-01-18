@@ -1,13 +1,10 @@
-package Subjects;
+package subjects;
 
-import Abstracts.*;
-import Subjects.*;
+import abstracts.*;
 
-public class NearRocket extends Location {
-    private int length;
-    public NearRocket(String name, int length, Time time) {
-        super(name, time);
-        this.length = length;
+public class Road extends Location {
+    public Road(String name, Time time, Point point) {
+        super(name, time, point);
     }
     @Override
     public String getLocationName() {

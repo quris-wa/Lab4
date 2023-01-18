@@ -1,13 +1,10 @@
-package Subjects;
+package subjects;
+import abstracts.*;
 
-import Abstracts.*;
-import Subjects.*;
 
-public class Home extends Location {
-    private int length;
-    public Home(String name, int length, Time time) {
-        super(name, time);
-        this.length = length;
+public class Airlock extends Location {
+    public Airlock(String name, Time time, Point point) {
+        super(name, time, point);
     }
     @Override
     public String getLocationName() {
@@ -17,7 +14,7 @@ public class Home extends Location {
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 1;
+        return (result) * 20;
     }
 
     @Override
@@ -28,11 +25,11 @@ public class Home extends Location {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((Road) obj).getLocationName().equals(this.getLocationName());
+        return ((Airlock) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Subjects.Home: " + this.getLocationName();
+        return "Subjects.Airlock: " + this.getLocationName();
     }
 }

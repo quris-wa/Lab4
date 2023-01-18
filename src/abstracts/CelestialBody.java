@@ -1,4 +1,4 @@
-package Abstracts;
+package abstracts;
 
 public abstract class CelestialBody {
     private String name;
@@ -17,6 +17,12 @@ public abstract class CelestialBody {
     }
     private void joinToStory() {
         System.out.println("Космическое тело " + name + " появилось в истории");
+    }
+
+    @Override
+    public int hashCode() {
+        int result = this.getName() == null ? 0 : this.getName().hashCode();
+        return (result) * 20;
     }
     @Override
     public boolean equals(Object obj) {

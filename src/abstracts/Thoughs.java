@@ -1,4 +1,4 @@
-package Abstracts;
+package abstracts;
 
 public enum Thoughs {
     SCAREDOFSCAPE, NEUTRAL, SHAME, REGRET, AMAZED, ROCKETWILLFLY, NOTCALM, CALM, SCARED, HURTFUL

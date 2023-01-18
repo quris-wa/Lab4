@@ -1,13 +1,10 @@
-package Subjects;
-import Abstracts.*;
-import Subjects.*;
+package subjects;
 
+import abstracts.*;
 
-public class Airlock extends Location {
-    private int length;
-    public Airlock(String name, int length, Time time) {
-        super(name, time);
-        this.length = length;
+public class CosmicCity extends Location {
+    public CosmicCity(String name, Time time, Point point) {
+        super(name, time, point);
     }
     @Override
     public String getLocationName() {
@@ -17,7 +14,7 @@ public class Airlock extends Location {
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 20;
+        return (result) * 40;
     }
 
     @Override
@@ -28,11 +25,11 @@ public class Airlock extends Location {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((Airlock) obj).getLocationName().equals(this.getLocationName());
+        return ((CosmicCity) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Subjects.Airlock: " + this.getLocationName();
+        return "Subjects.CosmicCity: " + this.getLocationName();
     }
 }

@@ -1,6 +1,6 @@
-package Subjects;
+package subjects;
 
-import Abstracts.CelestialBody;
+import abstracts.CelestialBody;
 
 public class Moon extends CelestialBody {
     private String name;

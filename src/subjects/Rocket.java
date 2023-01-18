@@ -1,7 +1,6 @@
-package Subjects;
+package subjects;
 
-import Abstracts.*;
-import Subjects.*;
+import abstracts.*;
 
 public class Rocket extends Transport {
     private String name;

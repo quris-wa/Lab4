@@ -1,13 +1,10 @@
-package Subjects;
+package subjects;
 
-import Abstracts.*;
-import Subjects.*;
+import abstracts.*;
 
-public class Square extends Location {
-    private int length;
-    public Square(String name, int length, Time time) {
-        super(name, time);
-        this.length = length;
+public class NearRocket extends Location {
+    public NearRocket(String name, Time time, Point point) {
+        super(name, time, point);
     }
     @Override
     public String getLocationName() {
@@ -17,7 +14,7 @@ public class Square extends Location {
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 60;
+        return (result) * 20;
     }
 
     @Override
@@ -28,11 +25,11 @@ public class Square extends Location {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((Square) obj).getLocationName().equals(this.getLocationName());
+        return ((Road) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Subjects.Square: " + this.getLocationName();
+        return "Subjects.Road: " + this.getLocationName();
     }
 }

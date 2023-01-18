@@ -1,8 +1,6 @@
-package Abstracts;
+package abstracts;
 
-import Abstracts.canChangeLoc;
-
-public abstract class Transport implements canChangeLoc {
+public abstract class Transport implements СanChangeLoc {
     private String name;
     private Point point;
     private Location location;

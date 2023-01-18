@@ -1,41 +1,43 @@
-package Story;
+package story;
 
-import Abstracts.*;
-import Subjects.*;
+import Exception1.*;
+import Exception2.*;
+import abstracts.*;
+import subjects.*;
 
 
 public class Story {
-    public static void main(String[] args) throws MyException.StorylineException {
+    public static void main(String[] args) throws Exception1.StorylineException, Exception2.EmptyException {
         try {
-            Location home = new Home("Дом", 0, Time.NIGHT);
-            Location road = new Road("Дорога", 10, Time.NIGHT);
-            Location cosmiccity = new CosmicCity("Космический городок", 20, Time.NIGHT);
-            Location square = new Square("Круглая площадь", 30, Time.NIGHT);
-            Location nearrocket = new NearRocket("Вблизи ракеты", 40, Time.NIGHT);
-            Location airlock = new Airlock("Шлюзовая камера",50, Time.NIGHT);
-            Person neznayka = new Person("Незнайка", home, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NOTCALM);
+            Location home = new Home("Дом", Time.NIGHT, new Point(0,0));
+            Location road = new Road("Дорога", Time.NIGHT, new Point(10,0));
+            Location cosmiccity = new CosmicCity("Космический городок", Time.NIGHT, new Point(20,0));
+            Location square = new Square("Круглая площадь", Time.NIGHT, new Point(30,0));
+            Location nearrocket = new NearRocket("Вблизи ракеты", Time.NIGHT, new Point(40,0));
+            Location airlock = new Airlock("Шлюзовая камера", Time.NIGHT, new Point(50,0));
+            Person neznayka = new Person("Незнайка", home, new Point(0,0), false, Thoughs.NOTCALM);
             neznayka.calm();
             neznayka.returnToNorm("Аппетит", "Сон");
-            OtherGuys korotyshki = new OtherGuys("Другие коротышки", IsSleeping.NOTSLEEPING);
-            neznayka.went(cosmiccity);
-            korotyshki.went(cosmiccity);
+            Person korotyshki = new OtherGuys("Другие коротышки",  home, new Point(0,0), false, Thoughs.NEUTRAL);
+            neznayka.went1(cosmiccity);
+            korotyshki.went2(cosmiccity);
             Transport rocket = new Rocket("Ракета", new Point(0,0), square, Material.METAL);
             rocket.toBeTested();
             neznayka.saw("долгое");
             Travelers travelers = new Travelers("Путешественники");
             neznayka.saw("долгое");
-            Person fuksia = new Person("Фуксия", square, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
-            Person seledocka = new Person("Селедочка", square, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
+            Person fuksia = new Person("Фуксия", square, new Point(0,0), false, Thoughs.NEUTRAL);
+            Person seledocka = new Person("Селедочка", square, new Point(0,0), false, Thoughs.NEUTRAL);
             fuksia.toLection(seledocka, "Луна", "Межпланетные полеты");
             neznayka.toAccept(30, "Полет на Луну");
             neznayka.toBeChanged("Характер", 20);
-            OtherGuys attentiveguys = new OtherGuys("Самые внимательные коротышки");
+            Person attentiveguys = new OtherGuys("Самые внимательные коротышки",  home, new Point(0,0), false, Thoughs.NEUTRAL);
             attentiveguys.toAttent(neznayka);
             neznayka.think(Thoughs.NEUTRAL);
             korotyshki.notUnderstand(neznayka);
-            Person ponchik = new Person("Пончик", home, new Point(0,0), IsSleeping.NOTSLEEPING, Thoughs.NEUTRAL);
+            Person ponchik = new Person("Пончик", home, new Point(0,0), false, Thoughs.NEUTRAL);
             neznayka.meet(ponchik, true);
-            OtherGuys korotyshki1 = new OtherGuys("Остальные коротышки", IsSleeping.NOTSLEEPING);
+            Person korotyshki1 = new OtherGuys("Остальные коротышки",  home, new Point(0,0), true, Thoughs.NEUTRAL);
             neznayka.setLocation(home);
             ponchik.setLocation(home);
             neznayka.notSleep();
@@ -60,11 +62,11 @@ public class Story {
             ponchik.think(Thoughs.ROCKETWILLFLY);
             neznayka.go(nearrocket);
             ponchik.go(nearrocket);
-            canBePressed button = new canBePressed() {
+            СanBePressed button = new СanBePressed() {
                 @Override
                 public void BePressed(Person person) {
                     System.out.println("Кнопка нажата персонажем " + person.getName());
-                    canBeOpened door = new canBeOpened() {
+                    СanBeOpened door = new СanBeOpened() {
                         @Override
                         public void BeOpened() {
                             System.out.println("Открылась дверца и опустилась небольшая металлическая лестница");
@@ -80,7 +82,7 @@ public class Story {
             neznayka.grabHim(ponchik);
             neznayka.go(airlock);
             ponchik.go(airlock);
-            canBeClosed outdoor = new canBeClosed() {
+            СanBeClosed outdoor = new СanBeClosed() {
                 @Override
                 public void BeClosed() {
                     System.out.println("Наружняя дверь автоматически закрылась");
@@ -96,7 +98,7 @@ public class Story {
         } catch (Exception exception) {
             exception.printStackTrace();
             System.out.println("Что-то не так");
-            throw new MyException.StorylineException();
+            throw new Exception1.StorylineException();
         }
 
     }

@@ -1,13 +1,10 @@
-package Subjects;
+package subjects;
 
-import Abstracts.*;
-import Subjects.*;
+import abstracts.*;
 
-public class CosmicCity extends Location {
-    private int length;
-    public CosmicCity(String name, int length, Time time) {
-        super(name, time);
-        this.length = length;
+public class Square extends Location {
+    public Square(String name, Time time, Point point) {
+        super(name, time, point);
     }
     @Override
     public String getLocationName() {
@@ -17,7 +14,7 @@ public class CosmicCity extends Location {
     @Override
     public int hashCode() {
         int result = this.getLocationName() == null ? 0 : this.getLocationName().hashCode();
-        return (result) * 40;
+        return (result) * 60;
     }
 
     @Override
@@ -28,11 +25,11 @@ public class CosmicCity extends Location {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return ((CosmicCity) obj).getLocationName().equals(this.getLocationName());
+        return ((Square) obj).getLocationName().equals(this.getLocationName());
     }
 
     @Override
     public String toString() {
-        return "Subjects.CosmicCity: " + this.getLocationName();
+        return "Subjects.Square: " + this.getLocationName();
     }
 }

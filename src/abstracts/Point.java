@@ -1,4 +1,4 @@
-package Abstracts;
+package abstracts;
 
 public class Point {
     private int x;
